@@ -1,4 +1,20 @@
 {
   "name": "jest-pg",
-  "version": "1.2.5"
+  "version": "1.2.6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zodiac1214/devoops.git"
+  },
+  "keywords": [
+    "jest",
+    "postgres",
+    "database",
+    "initialization"
+  ],
+  "author": "Di Zou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zodiac1214/devoops/issues"
+  },
+  "homepage": "https://github.com/zodiac1214/devoops#readme"
 }
