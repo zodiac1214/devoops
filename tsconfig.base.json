@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "jest-pg": ["libs/jest-pg/src/index.ts"]
+      "jest-pg": ["libs/jest-pg/src/index.ts"],
+      "jira-release-manager": ["libs/jira-release-manager/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

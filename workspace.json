@@ -31,6 +31,37 @@
           }
         }
       }
+    },
+    "jira-release-manager": {
+      "root": "libs/jira-release-manager",
+      "sourceRoot": "libs/jira-release-manager/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/jira-release-manager/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/jira-release-manager/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/jira-release-manager",
+            "tsConfig": "libs/jira-release-manager/tsconfig.lib.json",
+            "packageJson": "libs/jira-release-manager/package.json",
+            "main": "libs/jira-release-manager/src/index.ts",
+            "assets": ["libs/jira-release-manager/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

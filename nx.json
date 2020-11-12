@@ -28,6 +28,9 @@
   "projects": {
     "jest-pg": {
       "tags": []
+    },
+    "jira-release-manager": {
+      "tags": []
     }
   }
 }
