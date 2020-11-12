@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "jest-pg": ["libs/jest-pg/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

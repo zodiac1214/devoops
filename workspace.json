@@ -1,6 +1,38 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "jest-pg": {
+      "root": "libs/jest-pg",
+      "sourceRoot": "libs/jest-pg/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/jest-pg/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/jest-pg/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/jest-pg",
+            "tsConfig": "libs/jest-pg/tsconfig.lib.json",
+            "packageJson": "libs/jest-pg/package.json",
+            "main": "libs/jest-pg/src/index.ts",
+            "assets": ["libs/jest-pg/*.md"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }
