@@ -1,7 +1,16 @@
 # jest-pg
+Create postgres database scheme for each test and delete the database after test using jest globalSetup/globalTeardown.
 
-This library was generated with [Nx](https://nx.dev).
+NOTE: typeorm is used 
 
-## Running unit tests
+# Configuration
+This uses TYPEORM configuration from environment variables. You can put it in a .env file or specify TYPEROM_* when running jest 
 
-Run `nx test jest-pg` to execute the unit tests via [Jest](https://jestjs.io).
+# Usage
+jest.config.js
+``` 
+...
+globalSetup: "jest-pg/src/setupDatabase",
+globalTeardown: "jest-pg/src/teardownDatabase",
+...
+```

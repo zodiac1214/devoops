@@ -27,7 +27,11 @@
   },
   "private": true,
   "dependencies": {
-    "@nrwl/node": "^10.3.3"
+    "@nrwl/node": "^10.3.3",
+    "await-spawn": "^4.0.1",
+    "find-file-up": "^2.0.1",
+    "pg": "^8.5.0",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "@nrwl/cli": "10.3.3",
@@ -39,7 +43,7 @@
     "@types/node": "~8.9.4",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
-    "dotenv": "6.2.0",
+    "dotenv": "^8.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.0.0",
     "jest": "26.2.2",
