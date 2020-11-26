@@ -12,6 +12,6 @@ export const postgresClient: Client = new Client({
 });
 
 export const loadEnv = () => {
-  const envFilePath: string = findFileUp('.env');
+  const envFilePath: string = findFileUp.sync('.env');
   dotenv.config({ path: envFilePath });
 };
