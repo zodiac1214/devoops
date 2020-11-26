@@ -8,8 +8,9 @@ export default async (param) => {
     const dbName: string = uuid.v4();
     process.env.TYPEORM_DATABASE = dbName;
     console.log(`Setup test database - ${dbName}`);
-    await postgresClient.connect();
-    await postgresClient.query(`CREATE DATABASE "${dbName}";`);
+    const client = postgresClient();
+    await client.connect();
+    await client.query(`CREATE DATABASE "${dbName}";`);
 
     console.log(`Running migration on test database - ${dbName}`);
     process.env.TYPEORM_MIGRATIONS = `${param.rootDir}/src/migrations/**/*.ts,${param.rootDir}/src/__mocks__/migrations/**/*.ts`;
