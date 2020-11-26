@@ -12,7 +12,7 @@ export default async (param) => {
     await postgresClient.query(`CREATE DATABASE "${dbName}";`);
 
     console.log(`Running migration on test database - ${dbName}`);
-    process.env.TYPEORM_MIGRATIONS = `${param.rootDir}/src/migrations/**/*.ts`;
+    process.env.TYPEORM_MIGRATIONS = `${param.rootDir}/src/migrations/**/*.ts,${param.rootDir}/src/__mocks__/migrations/**/*.ts`;
     process.env.TYPEORM_ENTITIES = `${param.rootDir}/src/entities/**/*.ts`;
     const migrationOutput = await spawn('yarn', [
       'run',
@@ -21,6 +21,6 @@ export default async (param) => {
     ]);
     console.log(migrationOutput.toString());
   } catch (e) {
-    console.error('Setup test database failed: ', e);
+    console.error('Setup test database failed: ', e.stderr.toString());
   }
 };
