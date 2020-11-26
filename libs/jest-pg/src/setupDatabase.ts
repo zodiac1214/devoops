@@ -21,6 +21,7 @@ export default async (param) => {
       'migration:run',
     ]);
     console.log(migrationOutput.toString());
+    await client.end();
   } catch (e) {
     console.error('Setup test database failed: ', e.stderr.toString());
   }
