@@ -7,6 +7,7 @@ export default async (param) => {
     const dbName = process.env.TYPEORM_DATABASE;
     console.log(`Teardown test database - ${dbName}`);
     client = postgresClient();
+    await client.connect();
     await client.query(
       `SELECT pg_terminate_backend(pid) FROM pg_stat_activity
         WHERE datname='${dbName}';`
