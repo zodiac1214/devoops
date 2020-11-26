@@ -3,12 +3,13 @@ import * as spawn from 'await-spawn';
 import { loadEnv, postgresClient } from './lib/util';
 
 export default async (param) => {
+  let client;
   try {
     loadEnv();
     const dbName: string = uuid.v4();
     process.env.TYPEORM_DATABASE = dbName;
     console.log(`Setup test database - ${dbName}`);
-    const client = postgresClient();
+    client = postgresClient();
     await client.connect();
     await client.query(`CREATE DATABASE "${dbName}";`);
 
@@ -23,6 +24,8 @@ export default async (param) => {
     console.log(migrationOutput.toString());
     await client.end();
   } catch (e) {
-    console.error('Setup test database failed: ', e.stderr.toString());
+    console.error('Setup test database failed: ', e);
+  } finally {
+    await client.end();
   }
 };
