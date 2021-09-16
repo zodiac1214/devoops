@@ -1,5 +1,5 @@
 import * as uuid from 'uuid';
-import * as spawn from 'await-spawn';
+import * as spawn from 'cross-spawn';
 import { loadEnv, postgresClient } from './lib/util';
 
 export default async (param) => {
@@ -16,7 +16,7 @@ export default async (param) => {
     console.log(`Running migration on test database - ${dbName}`);
     process.env.TYPEORM_MIGRATIONS = `${param.rootDir}/src/migrations/**/*.ts,${param.rootDir}/src/__mocks__/migrations/**/*.ts`;
     process.env.TYPEORM_ENTITIES = `${param.rootDir}/src/entities/**/*.ts`;
-    const migrationOutput = await spawn('yarn', [
+    const migrationOutput = await spawn.sync('yarn', [
       'run',
       'typeorm',
       'migration:run',

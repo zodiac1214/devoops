@@ -28,7 +28,7 @@
   "private": true,
   "dependencies": {
     "@nrwl/node": "^10.3.3",
-    "await-spawn": "^4.0.1",
+    "cross-spawn": "^7.0.3",
     "find-file-up": "^2.0.1",
     "pg": "^8.5.0",
     "uuid": "^8.3.1"
